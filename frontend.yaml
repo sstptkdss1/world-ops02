@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: fronte
-        image: 
+        image: aksaz01devvvd01registry.azurecr.io/sstptkdss1/world_vue_crud_security:20241028091929
         ports:
         - containerPort: 8080
 ---

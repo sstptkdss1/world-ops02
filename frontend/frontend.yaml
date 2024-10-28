@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: aksaz01devvvd01registry.azurecr.io/sstptkdss1/world_vue_crud_security:20241028091929
+        image: aksaz01devvvd01registry.azurecr.io/sstptkdss1/world_vue_crud_security:20241028141142
         ports:
         - containerPort: 8080
 ---

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: aksaz01devvvd01registry.azurecr.io/sstptkdss1/world_springboot_crud_security:20241028131424
+        image: aksaz01devvvd01registry.azurecr.io/sstptkdss1/world_springboot_crud_security:20241028141120
         ports:
         - containerPort: 8080
         readinessProbe:

@@ -1,18 +1,46 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: world-app-of-apps
+  name: app-of-apps
   namespace: argocd
 spec:
   destination:
-    namespace: worldkim
+    namespace: argocd
     server: https://kubernetes.default.svc
   project: default
   source:
     repoURL: 'https://github.com/sstptkdss1/world-ops02'
     targetRevision: main
-    path: . # 최상위 디렉토리를 참조하여 backend, frontend를 포함
+    path: .
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+      
+  # 하위 애플리케이션 정의
+  applications:
+    - name: backend
+      source:
+        repoURL: 'https://github.com/sstptkdss1/world-ops02'
+        targetRevision: main
+        path: backend
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: worldkim
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+
+    - name: frontend
+      source:
+        repoURL: 'https://github.com/sstptkdss1/world-ops02'
+        targetRevision: main
+        path: frontend
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: worldkim
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true

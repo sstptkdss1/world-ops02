@@ -19,20 +19,20 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fronte
+  name: frontend
 spec:
   replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: fronte
+      app: frontend
   template:
     metadata:
       labels:
-        app: fronte
+        app: frontend
     spec:
       containers:
-      - name: fronte
+      - name: frontend
         image: aksaz01devvvd01registry.azurecr.io/sstptkdss1/world_vue_crud_security:20241028091929
         ports:
         - containerPort: 8080
@@ -45,7 +45,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: fronte
+    app: frontend
   ports:
     - protocol: TCP
       port: 80
